@@ -13,8 +13,8 @@ You need **Python 3.10+** and about **2 GB of free disk space** (most of it is P
 **1. Get the code**
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git
-cd YOUR-REPO-NAME
+git clone https://github.com/sravanipamu/movie-recommender.git
+cd movie-recommender
 ```
 
 **2. Create a virtual environment**
