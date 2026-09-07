@@ -1,0 +1,23 @@
+# Direct dependencies only, with floors rather than exact pins so this installs
+# on any Python 3.10+ instead of only the version it was developed against.
+# For a byte-identical environment use requirements-lock.txt instead.
+
+# --- web app ---------------------------------------------------------------
+fastapi>=0.110
+uvicorn[standard]>=0.29
+pydantic>=2.6
+
+# --- fetching the catalog (only needed to refresh movies.json) -------------
+requests>=2.31
+python-dotenv>=1.0
+
+# --- embeddings + vector search --------------------------------------------
+# sentence-transformers pulls in torch and transformers; expect a large download.
+sentence-transformers>=3.0
+chromadb>=1.0
+numpy>=1.26
+
+# --- the TF-IDF baseline the embeddings are compared against ---------------
+scikit-learn>=1.4
+joblib>=1.3
+pandas>=2.2

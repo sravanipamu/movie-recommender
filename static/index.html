@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Movie Recommender</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Movie Recommender</h1>
+      <input id="search" type="search" placeholder="Search movies&hellip;"
+             autocomplete="off">
+      <div class="session-line">
+        session <code id="session-id">&hellip;</code>
+        &middot; <a href="/api/debug/events" target="_blank">view logged events</a>
+        &middot; <button id="new-session" class="link-btn" type="button">start a new session</button>
+      </div>
+    </header>
+
+    <section id="search-section" hidden>
+      <h2 id="search-heading">Search results</h2>
+      <div id="search-results" class="grid"></div>
+    </section>
+
+    <!-- Heading and subtitle are both driven by the API's `title`/`subtitle`,
+         so the label always matches the kind of list underneath it. -->
+    <section id="recommended-section" data-mode="">
+      <h2 id="recommended-heading">Trending Now</h2>
+      <p id="recommended-why" class="section-why" hidden></p>
+      <div id="recommended">
+        <div class="placeholder">Loading&hellip;</div>
+      </div>
+    </section>
+
+    <section id="catalog-section">
+      <h2 id="catalog-heading">All movies</h2>
+
+      <div class="filters">
+        <label>
+          <span>Language</span>
+          <select id="filter-language"><option value="">All languages</option></select>
+        </label>
+        <label>
+          <span>Genre</span>
+          <select id="filter-genre"><option value="">All genres</option></select>
+        </label>
+        <button id="clear-filters" type="button" hidden>Clear</button>
+        <span class="filter-count" id="filter-count"></span>
+      </div>
+
+      <div id="catalog" class="grid"></div>
+      <div class="pager">
+        <button id="prev" disabled>&larr; Prev</button>
+        <span class="status" id="page-status">Loading&hellip;</span>
+        <button id="next" disabled>Next &rarr;</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- Detail view. Hidden until a card is clicked. -->
+  <div id="detail" class="detail-backdrop" hidden>
+    <div class="detail-panel" role="dialog" aria-modal="true" aria-labelledby="detail-title">
+      <button id="detail-close" class="detail-close" aria-label="Close">&times;</button>
+      <div id="detail-body"></div>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
